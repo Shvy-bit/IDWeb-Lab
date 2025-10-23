@@ -42,19 +42,31 @@ footer {
     font-weight: bold;
     padding: 15px;
 }
-.incio-grid{
-    padding: 25px;
+.nosotros-grid {
     display: grid;
+    padding: 25px;
     grid-template-columns: auto auto auto;
     text-align: center;
 }
-.incio-grid p {
+.nosotros-grid p {
     margin: 15px 20px;
     padding: 10px 10px;
     background: gainsboro;
     gap: 10px;
 }
-main .servicios-grid {
+.inicio-grid{
+    padding: 25px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+}
+.inicio-grid p {
+    margin: 15px 20px;
+    padding: 10px 10px;
+    background: gainsboro;
+    gap: 10px;
+}
+ .servicios-grid {
     display: grid;
     padding: 15px;
     grid-template-columns: auto auto auto auto;
@@ -75,4 +87,15 @@ main .servicios-grid {
     background: gainsboro;
     padding: 20px;
     width: 200px;
+}
+.contacto {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+.contacto-grid form, input, textarea, button {
+    margin: 15px 20px;
+    padding: 10px 10px;
+    background: gainsboro;
+    gap: 10px;
 }

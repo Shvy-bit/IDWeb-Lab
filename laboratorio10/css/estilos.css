@@ -94,8 +94,7 @@ footer {
     padding: 25px;
 }
 .contacto-grid form, input, textarea, button {
-    margin: 15px 20px;
-    padding: 10px 10px;
-    background: gainsboro;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }

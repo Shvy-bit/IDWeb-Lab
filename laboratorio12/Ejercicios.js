@@ -68,3 +68,14 @@ function Ejercicio10() {
     let nombre = prompt("Ingrese su nombre:");
     alert(saludo(nombre));
 }
+const esPositivo = (numero) => {
+    return numero > 0;
+}
+function Ejercicio11() {
+    let numero = parseFloat(prompt("Ingrese un número para verificar si es positivo:"));
+    if (esPositivo(numero)) {
+        alert("El número " + numero + " es positivo.");
+    } else {
+        alert("El número " + numero + " no es positivo.");
+    }
+}

@@ -37,3 +37,12 @@ function Ejercicio6() {
 function mayorDeTres(num1, num2, num3) {
     return Math.max(num1, num2, num3);
 }
+function Ejercicio7() {
+    let nota1 = parseFloat(prompt("Ingrese la primera nota:"));
+    let nota2 = parseFloat(prompt("Ingrese la segunda nota:"));
+    let nota3 = parseFloat(prompt("Ingrese la tercera nota:"));
+    alert("El promedio de las notas es: " + promedio(nota1, nota2, nota3).toFixed(2));
+}
+const promedio = function(nota1, nota2, nota3) {
+    return (nota1 + nota2 + nota3) / 3;
+}

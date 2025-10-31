@@ -79,3 +79,16 @@ function Ejercicio11() {
         alert("El número " + numero + " no es positivo.");
     }
 }
+const agregarSigno = (str) => {
+    return str + "!";
+}
+const componer = (STR, agregarSigno) => {
+    return (texto) => {
+        return agregarSigno(STR(texto));
+    }
+}
+function Ejercicio12() {
+    let texto = prompt("Ingrese un texto a trasformar:");
+    const transformar = componer(STR, agregarSigno);
+    alert("El texto transformado es: " + transformar(texto));
+}

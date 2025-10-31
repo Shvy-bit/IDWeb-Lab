@@ -61,3 +61,10 @@ function Ejercicio9() {
     let porcentaje = parseFloat(prompt("Ingrese el porcentaje de descuento:"));
     alert("El precio con descuento es: " + descuento(precio, porcentaje).toFixed(2));
 }
+const saludo = (nombre) => {
+    return `¡Hola, ${nombre}!`;
+}
+function Ejercicio10() {
+    let nombre = prompt("Ingrese su nombre:");
+    alert(saludo(nombre));
+}

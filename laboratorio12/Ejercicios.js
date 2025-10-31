@@ -53,3 +53,11 @@ function Ejercicio8() {
     let texto = prompt("Ingrese un texto para convertir a mayúsculas:");
     alert("El texto en mayúsculas es: " + STR(texto));
 }
+const descuento = function(precio, porcentaje) {
+    return precio * (1 - (porcentaje / 100));
+}
+function Ejercicio9() {
+    let precio = parseFloat(prompt("Ingrese el precio del producto:"));
+    let porcentaje = parseFloat(prompt("Ingrese el porcentaje de descuento:"));
+    alert("El precio con descuento es: " + descuento(precio, porcentaje).toFixed(2));
+}

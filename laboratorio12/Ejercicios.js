@@ -46,3 +46,10 @@ function Ejercicio7() {
     let nota3 = parseFloat(prompt("Ingrese la tercera nota:"));
     alert("El promedio de las notas es: " + promedio(nota1, nota2, nota3).toFixed(2));
 }
+const STR = function(str) {
+    return str.toUpperCase();
+}
+function Ejercicio8() {
+    let texto = prompt("Ingrese un texto para convertir a mayúsculas:");
+    alert("El texto en mayúsculas es: " + STR(texto));
+}

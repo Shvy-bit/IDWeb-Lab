@@ -56,3 +56,36 @@ function Ejercicio6() {
     nombresSet = Array.from(nombresSet);
     alert("Nombres únicos ingresados: " + nombresSet);
 }
+function tieneDuplicados(arreglo) {
+    let conjunto = new Set(arreglo);
+    return conjunto.size !== arreglo.length;
+}
+function Ejercicio7() {
+    const arreglo = [1, 2,3 , 4, 5, 3];
+    const resultado = tieneDuplicados(arreglo);
+    alert("El arreglo " + arreglo + (resultado ? " tiene " : " no tiene ") + "duplicados.");
+}
+function Ejericcio8() {
+    let productos = new Map();
+    productos.set("Manzana", 1.5);
+    productos.set("Banana", 0.8);
+    productos.set("Naranja", 1.2);
+    productos.set("Pera", 1.0);
+    let productosStr = "";
+    productos.forEach((precio, producto) => {
+        productosStr += (producto + ": $" + precio.toFixed(2) + "\n");
+    });
+    let listaCompras = [];
+    let total = 0;
+    let opcion = confirm.prompt("Lista de productos y precios:\n" + productosStr + "Desea comprar?");
+    if(opcion) {
+        let compra = prompt("Ingrese el nombre de un producto:");
+        listaCompras.push(compra);
+    }
+    listaCompras.forEach(item => {
+        if (productos.has(item)) {
+            total += productos.get(item);
+        }
+    });
+    alert("El precio total de la lista de compras es: $" + total.toFixed(2));
+}

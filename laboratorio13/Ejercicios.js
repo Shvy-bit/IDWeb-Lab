@@ -31,3 +31,28 @@ function Ejercicio4() {
     const transformados = filtarYTransformar(numeros);
     alert("Números originales: " + numeros + "\nSuma de transformados: " + sumar(transformados));
 }
+function reordenarPalabras(oracion) {
+    let palabras = [];
+    palabras = oracion.split(" ");
+    palabras.sort();
+    let reordenadas = [];
+    palabras.forEach(str => {
+        reordenadas.push(str.toUpperCase());
+    });
+    return reordenadas;
+} 
+function Ejercicio5() {
+    let oracion = prompt("Ingrese una oración:");
+    alert("Palabras reordenadas: " + reordenarPalabras(oracion));
+}
+function Ejercicio6() {
+    let cantidad = parseInt(prompt("Ingrese la cantidad de nombres que va a ingresar:"));
+    let nombres = [];
+    while (nombres.length < cantidad) {
+        let nombre = prompt("Ingrese un nombre:");
+        nombres.push(nombre);
+    }
+    let nombresSet = new Set(nombres);
+    nombresSet = Array.from(nombresSet);
+    alert("Nombres únicos ingresados: " + nombresSet);
+}

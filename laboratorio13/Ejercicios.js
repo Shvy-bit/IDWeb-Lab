@@ -1,3 +1,5 @@
+const arreglo = [-1, 0, 1, 5, -2, -5]
+
 function doblar(numeros) {
     let doble = [];
     numeros.forEach(num => {
@@ -6,9 +8,8 @@ function doblar(numeros) {
     return doble;
 }
 function Ejercicio3() {
-    const numeros = [1, 2, 3, 4, 5];
-    const resultado = doblar(numeros);
-    alert("Números originales: " + numeros + "\nNúmeros doblados: " + resultado);
+    const resultado = doblar(arreglo);
+    alert("Números originales: " + arreglo + "\nNúmeros doblados: " + resultado);
 }
 function sumar(numeros) {
     let suma = 0;
@@ -27,9 +28,8 @@ function filtarYTransformar(numeros) {
     return resultado;
 }
 function Ejercicio4() {
-    const numeros = [1, -2, 3, -4, 5];
-    const transformados = filtarYTransformar(numeros);
-    alert("Números originales: " + numeros + "\nSuma de transformados: " + sumar(transformados));
+    const transformados = filtarYTransformar(arreglo);
+    alert("Números originales: " + arreglo + "\nSuma de transformados: " + sumar(transformados));
 }
 function reordenarPalabras(oracion) {
     let palabras = [];
@@ -40,7 +40,7 @@ function reordenarPalabras(oracion) {
         reordenadas.push(str.toUpperCase());
     });
     return reordenadas;
-} 
+}
 function Ejercicio5() {
     let oracion = prompt("Ingrese una oración:");
     alert("Palabras reordenadas: " + reordenarPalabras(oracion));
@@ -61,7 +61,6 @@ function tieneDuplicados(arreglo) {
     return conjunto.size !== arreglo.length;
 }
 function Ejercicio7() {
-    const arreglo = [1, 2,3 , 4, 5, 3];
     const resultado = tieneDuplicados(arreglo);
     alert("El arreglo " + arreglo + (resultado ? " tiene " : " no tiene ") + "duplicados.");
 }
@@ -71,17 +70,18 @@ function Ejericcio8() {
     productos.set("Banana", 0.8);
     productos.set("Naranja", 1.2);
     productos.set("Pera", 1.0);
-    let productosStr = "";
+    let productosStr = "Lista de productos y precios:\n";
     productos.forEach((precio, producto) => {
         productosStr += (producto + ": $" + precio.toFixed(2) + "\n");
     });
+    let comprar = confirm(productosStr + "\nDesea comprar?");
     let listaCompras = [];
-    let total = 0;
-    let opcion = confirm.prompt("Lista de productos y precios:\n" + productosStr + "Desea comprar?");
-    if(opcion) {
+    while(comprar) {
         let compra = prompt("Ingrese el nombre de un producto:");
         listaCompras.push(compra);
+        comprar = confirm("Seguir comprando?");
     }
+    let total = 0;
     listaCompras.forEach(item => {
         if (productos.has(item)) {
             total += productos.get(item);

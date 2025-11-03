@@ -134,3 +134,30 @@ function invertirMap(mapa) {
     });
     return out;
 }
+//Ejercicio 11
+let auto = {
+  marca: "Ford",
+  modelo: "Mustang",
+  año: 1969,
+  detalles: function() {
+return `Marca: ${this.marca}\nModelo: ${this.modelo}\nAño: ${this.año}`;
+  }
+};
+function Ejercicio11() {
+    alert(auto.detalles());
+}
+function Ejercicio12() {
+    let palabra = prompt("Ingrese una palabra");
+    let contador = contarLetras(palabra);
+    alert("Letras:\n" + mapaToString(contador));
+}
+function contarLetras(str) {
+    str = str.toLowerCase();
+    let caracteres = str.split('');
+    let out = new Map();
+    caracteres.forEach(char => {
+        if(!out.has(char)) out.set(char, 1);
+        else out.set(char, out.get(char) + 1);
+    });
+    return out;
+}

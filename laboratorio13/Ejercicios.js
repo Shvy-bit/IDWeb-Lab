@@ -161,3 +161,97 @@ function contarLetras(str) {
     });
     return out;
 }
+//Ejercicio 13
+let tiendaA = {
+    laptop: 3500.5,
+    mouse: 100.35,
+    teclado: 250.9
+}
+let tiendaB = {
+    mouse: 95.2,
+    monitor: 720.457,
+    teclado: 260.1
+}
+function objetoToString(obj) {
+    let out = "";
+    let propiedades = Object.entries(obj);
+    propiedades.forEach(([clave, val]) => {
+        out += clave + "=>" + val.toFixed(2) + "\n";
+    });
+    return out;
+}
+function Ejercicio13() {
+    alert("Tienda A:\n" + objetoToString(tiendaA));
+    alert("Tienda B:\n" + objetoToString(tiendaB));
+    let tiendaC = combinarCatalogos(tiendaA, tiendaB);
+    alert("Tienda combinada:\n" + objetoToString(tiendaC));
+}
+function combinarCatalogos(obj1, obj2) {
+    let out = {};
+    out = combinar(out, obj1);
+    out = combinar(out, obj2);
+    return out;
+}
+function combinar(out, obj) {
+    let propiedades = Object.entries(obj);
+    propiedades.forEach(([clave,val]) => {
+        if (!out.hasOwnProperty(clave)) out[clave] = val;
+        else {
+            if(out[clave] > obj[clave]) out[clave] = obj[clave];
+        }
+    });
+    return out;
+}
+//Ejercicio 14
+class Empleado {
+    constructor(id, nombre, area, salario){
+        this.id = id;
+        this.nombre = nombre;
+        this.area = area;
+        this.salario = salario;
+    }
+}
+const empleados = [
+    new Empleado(1, "Juan", "Ventas", 2400),
+    new Empleado(2, "Marta", "Ventas", 2600),
+    new Empleado(3, "Luis", "TI", 4000),
+    new Empleado(4, "Ana", "Recursos humanos", 3000),
+    new Empleado(5, "Jesus", "Recursos humanos", 2800)
+]
+function gestionarEmpleados(empleados) {
+    const resumenPorArea = new Map();
+    empleados.forEach(empleado => {
+        const { nombre, area, salario } = empleado;
+        if (!resumenPorArea.has(area)) {
+            resumenPorArea.set(area, {
+                nombres: [],
+                totalSalarios: 0,
+                cantidad: 0
+            });
+        }
+        const datosArea = resumenPorArea.get(area);
+        datosArea.nombres.push(nombre);
+        datosArea.totalSalarios += salario;
+        datosArea.cantidad++;
+    });
+    const resultadoFinal = {};
+    for (const [area, datos] of resumenPorArea.entries()) {
+        const promedio = datos.totalSalarios / datos.cantidad;
+        resultadoFinal[area] = {
+            empleados: datos.nombres,
+            promedio: Math.round(promedio)
+        };
+    }
+    return resultadoFinal;
+}
+function Ejercicio14() {
+    let gestion = gestionarEmpleados(empleados);
+    let out = "";
+    for(let area in gestion) {
+        let datos = gestion[area]
+        out += `--- Área: ${area} ---\n`;
+        out += `  Empleados: ${datos.empleados.join(', ')}\n`;
+        out += `  Promedio Salarial: $${datos.promedio}\n`;
+    }
+    alert(out);
+}

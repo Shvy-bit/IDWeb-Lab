@@ -1,4 +1,19 @@
 const arreglo = [-1, 0, 1, 5, -2, -5]
+const mapaModelo = new Map([
+    ["Perú", "Lima"],
+    ["Chile", "Santiago"],
+    ["Argentina", "Buenos Aires"]
+]);
+function mapaToString(mapa) {
+    out = "";
+    mapa.forEach((val, clave) => {
+        out += clave + " => " + val + "\n";
+    });
+    return out;
+}
+function pedirOracion () {
+    return prompt("Ingrese una oracion:");
+}
 
 function doblar(numeros) {
     let doble = [];
@@ -42,7 +57,7 @@ function reordenarPalabras(oracion) {
     return reordenadas;
 }
 function Ejercicio5() {
-    let oracion = prompt("Ingrese una oración:");
+    let oracion = pedirOracion();
     alert("Palabras reordenadas: " + reordenarPalabras(oracion));
 }
 function Ejercicio6() {
@@ -64,7 +79,7 @@ function Ejercicio7() {
     const resultado = tieneDuplicados(arreglo);
     alert("El arreglo " + arreglo + (resultado ? " tiene " : " no tiene ") + "duplicados.");
 }
-function Ejericcio8() {
+function Ejercicio8() {
     let productos = new Map();
     productos.set("Manzana", 1.5);
     productos.set("Banana", 0.8);
@@ -88,4 +103,34 @@ function Ejericcio8() {
         }
     });
     alert("El precio total de la lista de compras es: $" + total.toFixed(2));
+}
+function Ejercicio9() {
+    let oracion = pedirOracion();
+    let contador = contarPalabras(oracion);
+    let out = "Contador de palabras: \n";
+    alert(out + mapaToString(contador));
+}
+function contarPalabras(str) {
+    let palabras = [];
+    palabras = str.split(" ");
+    let mapa = new Map();
+    palabras.forEach(palabra => {
+        if(palabra === "") return;
+        palabra = palabra.toLowerCase();
+        if (!mapa.has(palabra)) mapa.set(palabra, 1);
+        else mapa.set(palabra, mapa.get(palabra) + 1);
+    });
+    return mapa;
+}
+function Ejercicio10() {
+    let mapaInvertido = invertirMap(mapaModelo);
+    alert("Mapa original :\n" + mapaToString(mapaModelo));
+    alert("Mapa invertido: \n" + mapaToString(mapaInvertido));
+}
+function invertirMap(mapa) {
+    let out = new Map();
+    mapa.forEach((val, clave) => {
+        out.set(val,clave);
+    });
+    return out;
 }

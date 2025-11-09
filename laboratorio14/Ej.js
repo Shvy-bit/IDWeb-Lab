@@ -40,3 +40,23 @@ function Ejercicio7() {
 }
 function gradosARadianes(grado) { return grado * (Math.PI / 180); }
 function radianesAGrados(radian) { return radian * (180 / Math.PI); }
+function Ejercicio8() {
+    let contraseña = "";
+    for (let i = 0; i < 6; i++) {
+        contraseña += numeroAleatorio(0, 9);
+    }
+    alert("Contrasña: " + contraseña);
+}
+function Ejercicio9() {
+    let x1 = parseFloat(prompt("Ingresa x1:"));
+    let y1 = parseFloat(prompt("Ingresa y1:"));
+    let x2 = parseFloat(prompt("Ingresa x2:"));
+    let y2 = parseFloat(prompt("Ingresa y2:"));
+    let d1 = parseFloat(distanciaEntre(0, 0, x1, y1));
+    let d2 = parseFloat(distanciaEntre(0, 0, x2, y2));
+    alert(`Distancia entre puntos: ${distanciaEntre(x1, y1, x2, y2)}` +
+            `\nSuma de distancias: ${d1 + d2}`);
+}
+function distanciaEntre(x1, y1, x2, y2) {
+    return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)).toFixed(2);
+}
